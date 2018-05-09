@@ -31,6 +31,8 @@ class MainDashaActivity : AppCompatActivity() {
         var paramForProdValue: String = paramForProdHashMap.get("paramForProd")?: ""
 
         horoscope_cv.setOnClickListener {
+
+
             dashaData.horoscopeResponse(HoroscopeRequestBody(kpChartValue, onlineResultValue, paramForPerskvValue), object : DashaCallback<HoroscopeResponse> {
                 override fun onSuccess(data: HoroscopeResponse) {
                     dashaResponse = data.luckyDayValue
@@ -150,6 +152,10 @@ class MainDashaActivity : AppCompatActivity() {
             })
         }
 
+
+    }
+
+    fun showLoader(){
 
     }
 
