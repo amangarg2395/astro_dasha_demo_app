@@ -40,7 +40,7 @@ class MainDashaActivity : AppCompatActivity() {
             nsv.visibility = View.GONE
             progress_view_ll.visibility = View.VISIBLE
 
-            dashaData.horoscopeResponse(HoroscopeRequestBody(kpChartValue, onlineResultValue, paramForPerskvValue), object : DashaCallback<HoroscopeResponse> {
+            dashaData.getHoroscopeResponse(HoroscopeRequestBody(kpChartValue, onlineResultValue, paramForPerskvValue), object : DashaCallback<HoroscopeResponse> {
                 override fun onSuccess(data: HoroscopeResponse) {
 
                     dashaResponse = data.luckyDayValue
@@ -63,7 +63,7 @@ class MainDashaActivity : AppCompatActivity() {
         current_mahadasha_cv.setOnClickListener {
             nsv.visibility = View.GONE
             progress_view_ll.visibility = View.VISIBLE
-            dashaData.getCurrentMahadashaFal(CurrentMahadashaFalRequestBody(mainMahadashaListValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<CurrentMahadashaFalResponse> {
+            dashaData.getCurrentMahadashaFal(CurrentMahadashaFalRequestBody(kpChartValue, cuspHouseCuspValue, mainMahadashaListValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<CurrentMahadashaFalResponse> {
                 override fun onSuccess(data: CurrentMahadashaFalResponse) {
                     dashaResponse = data.mahadashaText
                     intent.putExtra("dashaResp", dashaResponse)
@@ -84,7 +84,7 @@ class MainDashaActivity : AppCompatActivity() {
         current_antardasha_cv.setOnClickListener {
             nsv.visibility = View.GONE
             progress_view_ll.visibility = View.VISIBLE
-            dashaData.getCurrentAntardashaFal(CurrentAntardashaFalRequestBody(mainMahadashaListValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<CurrentAntardashaFalResponse> {
+            dashaData.getCurrentAntardashaFal(CurrentAntardashaFalRequestBody(kpChartValue, cuspHouseCuspValue, mainMahadashaListValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<CurrentAntardashaFalResponse> {
                 override fun onSuccess(data: CurrentAntardashaFalResponse) {
                     dashaResponse = data.antardashaText
                     intent.putExtra("dashaResp", dashaResponse)
@@ -126,9 +126,30 @@ class MainDashaActivity : AppCompatActivity() {
         health_cv.setOnClickListener {
             nsv.visibility = View.GONE
             progress_view_ll.visibility = View.VISIBLE
-            dashaData.healthResponse(PredictionRequestBody(kpChartValue, cuspHouseValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<HealthResponse> {
+            dashaData.getHealthResponse(PredictionRequestBody(kpChartValue, cuspHouseValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<HealthResponse> {
                 override fun onSuccess(data: HealthResponse) {
                     dashaResponse = data.healthPred
+                    intent.putExtra("dashaResp", dashaResponse)
+                    startActivity(intent)
+                    progress_view_ll.visibility = View.GONE
+                    nsv.visibility = View.VISIBLE
+                }
+
+                override fun onError(e: Throwable) {
+                    Exception(e)
+                    progress_view_ll.visibility = View.GONE
+                    nsv.visibility = View.VISIBLE
+                }
+
+            })
+        }
+
+        married_life_cv.setOnClickListener {
+            nsv.visibility = View.GONE
+            progress_view_ll.visibility = View.VISIBLE
+            dashaData.getMarriedLifeResponse(PredictionRequestBody(kpChartValue, cuspHouseValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<MarriedLifeResponse> {
+                override fun onSuccess(data: MarriedLifeResponse) {
+                    dashaResponse = data.marriedLifePred
                     intent.putExtra("dashaResp", dashaResponse)
                     startActivity(intent)
                     progress_view_ll.visibility = View.GONE
@@ -147,7 +168,7 @@ class MainDashaActivity : AppCompatActivity() {
         occupation_cv.setOnClickListener {
             nsv.visibility = View.GONE
             progress_view_ll.visibility = View.VISIBLE
-            dashaData.occupationResponse(PredictionRequestBody(kpChartValue, cuspHouseValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<OccupationResponse> {
+            dashaData.getOccupationResponse(PredictionRequestBody(kpChartValue, cuspHouseValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<OccupationResponse> {
                 override fun onSuccess(data: OccupationResponse) {
                     dashaResponse = data.occupationPred
                     intent.putExtra("dashaResp", dashaResponse)
@@ -167,7 +188,7 @@ class MainDashaActivity : AppCompatActivity() {
         parents_cv.setOnClickListener {
             nsv.visibility = View.GONE
             progress_view_ll.visibility = View.VISIBLE
-            dashaData.parentsResponse(PredictionRequestBody(kpChartValue, cuspHouseValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<ParentsResponse> {
+            dashaData.getParentsResponse(PredictionRequestBody(kpChartValue, cuspHouseValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<ParentsResponse> {
                 override fun onSuccess(data: ParentsResponse) {
                     dashaResponse = data.parentsPred
                     intent.putExtra("dashaResp", dashaResponse)
@@ -188,7 +209,7 @@ class MainDashaActivity : AppCompatActivity() {
         children_cv.setOnClickListener {
             nsv.visibility = View.GONE
             progress_view_ll.visibility = View.VISIBLE
-            dashaData.childrenResponse(PredictionRequestBody(kpChartValue, cuspHouseValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<ChildrenResponse> {
+            dashaData.getChildrenResponse(PredictionRequestBody(kpChartValue, cuspHouseValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<ChildrenResponse> {
                 override fun onSuccess(data: ChildrenResponse) {
                     dashaResponse = data.santanPred
                     intent.putExtra("dashaResp", dashaResponse)

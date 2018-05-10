@@ -51,7 +51,7 @@ public class DashaData {
 
     }
 
-    fun getGenerateNewResponseAsync(generateNewRequestBody: GenerateNewRequestBody, userId: String, callback: DashaCallback<Any?>) {
+    fun getGenerateNewResponseAsync(generateNewRequestBody: GenerateNewRequestBody, userId: String, callback: DashaCallback<GenerateNewResponse>) {
         try {
             mCompositeSubscription.add(RestProvider.getDashaService().getMahaDashaResponse(Utils.KEY_VALUE, generateNewRequestBody, userId)
                     .subscribeOn(Schedulers.io())
@@ -68,7 +68,7 @@ public class DashaData {
 
                         override fun onNext(generateNewResponseBody: GenerateNewResponse) {
                             mGenerateNewResponse = generateNewResponseBody
-                            callback.onSuccess(mGenerateNewResponse)
+                            callback.onSuccess(mGenerateNewResponse!!)
 
                         }
                     }))
@@ -106,7 +106,7 @@ public class DashaData {
 
     }
 
-    fun getCurrentMahadashaFalAsync(currentMahadashaFalRequestBody: CurrentMahadashaFalRequestBody, userId: String, callback: DashaCallback<Any?>) {
+    fun getCurrentMahadashaFalAsync(currentMahadashaFalRequestBody: CurrentMahadashaFalRequestBody, userId: String, callback: DashaCallback<CurrentMahadashaFalResponse>) {
 
         try {
 
@@ -126,7 +126,7 @@ public class DashaData {
 
                         override fun onNext(currentMahadashaFalResponse: CurrentMahadashaFalResponse) {
                             mCurrentMahadashaFalResponse = currentMahadashaFalResponse
-                            callback.onSuccess(mCurrentMahadashaFalResponse)
+                            callback.onSuccess(mCurrentMahadashaFalResponse!!)
 
                         }
                     }))
@@ -165,7 +165,7 @@ public class DashaData {
 
     }
 
-    fun getCurrentAntardashaFalAsync(currentAntardashaFalRequestBody: CurrentAntardashaFalRequestBody, userId: String, callback: DashaCallback<Any?>) {
+    fun getCurrentAntardashaFalAsync(currentAntardashaFalRequestBody: CurrentAntardashaFalRequestBody, userId: String, callback: DashaCallback<CurrentAntardashaFalResponse>) {
 
         try {
 
@@ -185,7 +185,7 @@ public class DashaData {
 
                         override fun onNext(currentAntardashaFalResponse: CurrentAntardashaFalResponse) {
                             mCurrentAntardashaFalResponse = currentAntardashaFalResponse
-                            callback.onSuccess(mCurrentAntardashaFalResponse)
+                            callback.onSuccess(mCurrentAntardashaFalResponse!!)
 
                         }
                     }))
@@ -224,7 +224,7 @@ public class DashaData {
 
     }
 
-    fun getYogYutiResponseAsync(yogYutiRequestBody: YogYutiRequestBody, callback: DashaCallback<Any?>) {
+    fun getYogYutiResponseAsync(yogYutiRequestBody: YogYutiRequestBody, callback: DashaCallback<YogYutiResponse>) {
 
         try {
 
@@ -244,7 +244,7 @@ public class DashaData {
 
                         override fun onNext(yogYutiResponse: YogYutiResponse) {
                             mYogYutiResponse = yogYutiResponse
-                            callback.onSuccess(mYogYutiResponse)
+                            callback.onSuccess(mYogYutiResponse!!)
 
                         }
                     }))
@@ -254,7 +254,7 @@ public class DashaData {
 
     }
 
-    fun horoscopeResponse(horoscopeRequestBody: HoroscopeRequestBody, callback: DashaCallback<HoroscopeResponse>) {
+    fun getHoroscopeResponse(horoscopeRequestBody: HoroscopeRequestBody, callback: DashaCallback<HoroscopeResponse>) {
 
         try {
 
@@ -282,7 +282,7 @@ public class DashaData {
 
     }
 
-    fun horoscopeResponseAsync(horoscopeRequestBody: HoroscopeRequestBody, callback: DashaCallback<Any?>) {
+    fun getHoroscopeResponseAsync(horoscopeRequestBody: HoroscopeRequestBody, callback: DashaCallback<HoroscopeResponse>) {
 
         try {
 
@@ -302,7 +302,7 @@ public class DashaData {
 
                         override fun onNext(horoscopeResponse: HoroscopeResponse) {
                             mHoroscopeResponse = horoscopeResponse
-                            callback.onSuccess(mHoroscopeResponse)
+                            callback.onSuccess(mHoroscopeResponse!!)
 
                         }
                     }))
@@ -313,7 +313,7 @@ public class DashaData {
     }
 
 
-    fun healthResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<HealthResponse>) {
+    fun getHealthResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<HealthResponse>) {
 
         try {
 
@@ -341,7 +341,7 @@ public class DashaData {
 
     }
 
-    fun healthResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<Any?>) {
+    fun getHealthResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<HealthResponse>) {
 
         try {
 
@@ -361,7 +361,7 @@ public class DashaData {
 
                         override fun onNext(healthResponse: HealthResponse) {
                             mHealthResponse = healthResponse
-                            callback.onSuccess(mHealthResponse)
+                            callback.onSuccess(mHealthResponse!!)
 
                         }
                     }))
@@ -372,7 +372,7 @@ public class DashaData {
     }
 
 
-    fun marriedLifeResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<Any?>) {
+    fun getMarriedLifeResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<MarriedLifeResponse>) {
 
         try {
 
@@ -390,7 +390,7 @@ public class DashaData {
 
                         override fun onNext(marriedLifeResponse: MarriedLifeResponse) {
                             mMarriedLifeResponse = marriedLifeResponse
-                            callback.onSuccess(mMarriedLifeResponse)
+                            callback.onSuccess(mMarriedLifeResponse!!)
 
                         }
                     }))
@@ -400,7 +400,7 @@ public class DashaData {
 
     }
 
-    fun marriedLifeResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<Any?>) {
+    fun getMarriedLifeResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<MarriedLifeResponse>) {
 
         try {
 
@@ -420,7 +420,7 @@ public class DashaData {
 
                         override fun onNext(marriedLifeResponse: MarriedLifeResponse) {
                             mMarriedLifeResponse = marriedLifeResponse
-                            callback.onSuccess(mMarriedLifeResponse)
+                            callback.onSuccess(mMarriedLifeResponse!!)
 
                         }
                     }))
@@ -431,7 +431,7 @@ public class DashaData {
     }
 
 
-    fun occupationResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<OccupationResponse>) {
+    fun getOccupationResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<OccupationResponse>) {
 
         try {
 
@@ -458,7 +458,7 @@ public class DashaData {
 
     }
 
-    fun occupationResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<Any?>) {
+    fun getOccupationResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<OccupationResponse>) {
 
         try {
 
@@ -477,7 +477,7 @@ public class DashaData {
 
                         override fun onNext(occupationResponse: OccupationResponse) {
                             mOccupationResponse = occupationResponse
-                            callback.onSuccess(mOccupationResponse)
+                            callback.onSuccess(mOccupationResponse!!)
 
                         }
                     }))
@@ -488,7 +488,7 @@ public class DashaData {
     }
 
 
-    fun parentsResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<ParentsResponse>) {
+    fun getParentsResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<ParentsResponse>) {
 
         try {
 
@@ -517,7 +517,7 @@ public class DashaData {
 
     }
 
-    fun parentsResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<Any?>) {
+    fun getParentsResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<ParentsResponse>) {
 
         try {
 
@@ -538,7 +538,7 @@ public class DashaData {
                         override fun onNext(parentsResponse: ParentsResponse) {
 
                             mParentsResponse = parentsResponse
-                            callback.onSuccess(mParentsResponse)
+                            callback.onSuccess(mParentsResponse!!)
 
                         }
                     }))
@@ -549,7 +549,7 @@ public class DashaData {
     }
 
 
-    fun childrenResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<ChildrenResponse>) {
+    fun getChildrenResponse(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<ChildrenResponse>) {
 
         try {
 
@@ -577,7 +577,7 @@ public class DashaData {
 
     }
 
-    fun childrenResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<Any?>) {
+    fun getChildrenResponseAsync(predictionRequestBody: PredictionRequestBody, callback: DashaCallback<ChildrenResponse>) {
 
         try {
 
@@ -597,7 +597,7 @@ public class DashaData {
 
                         override fun onNext(childrenResponse: ChildrenResponse) {
                             mChildrenResponse = childrenResponse
-                            callback.onSuccess(mChildrenResponse)
+                            callback.onSuccess(mChildrenResponse!!)
 
                         }
                     }))
