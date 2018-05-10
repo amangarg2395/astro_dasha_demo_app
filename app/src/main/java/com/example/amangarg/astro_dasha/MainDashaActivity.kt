@@ -63,7 +63,7 @@ class MainDashaActivity : AppCompatActivity() {
         current_mahadasha_cv.setOnClickListener {
             nsv.visibility = View.GONE
             progress_view_ll.visibility = View.VISIBLE
-            dashaData.getCurrentMahadashaFal(CurrentMahadashaFalRequestBody(kpChartValue, cuspHouseCuspValue, mainMahadashaListValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<CurrentMahadashaFalResponse> {
+            dashaData.getCurrentMahadashaFal(CurrentMahadashaFalRequestBody(mainMahadashaListValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<CurrentMahadashaFalResponse> {
                 override fun onSuccess(data: CurrentMahadashaFalResponse) {
                     dashaResponse = data.mahadashaText
                     intent.putExtra("dashaResp", dashaResponse)
@@ -84,7 +84,7 @@ class MainDashaActivity : AppCompatActivity() {
         current_antardasha_cv.setOnClickListener {
             nsv.visibility = View.GONE
             progress_view_ll.visibility = View.VISIBLE
-            dashaData.getCurrentAntardashaFal(CurrentAntardashaFalRequestBody(kpChartValue, cuspHouseCuspValue, mainMahadashaListValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<CurrentAntardashaFalResponse> {
+            dashaData.getCurrentAntardashaFal(CurrentAntardashaFalRequestBody(mainMahadashaListValue, onlineResultValue, paramForPerskvValue, paramForProdValue), object : DashaCallback<CurrentAntardashaFalResponse> {
                 override fun onSuccess(data: CurrentAntardashaFalResponse) {
                     dashaResponse = data.antardashaText
                     intent.putExtra("dashaResp", dashaResponse)
