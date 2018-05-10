@@ -28,7 +28,7 @@ public class DashaData {
 
     fun getGenerateNewResponse(generateNewRequestBody: GenerateNewRequestBody, userId: String, callback: DashaCallback<GenerateNewResponse>) {
         try {
-            mCompositeSubscription.add(RestProvider.getDashaService().getMahaDashaResponse(Utils.KEY_VALUE, generateNewRequestBody, userId)
+            mCompositeSubscription.add(RestProvider.getDashaService().getMahaDashaResponse(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, generateNewRequestBody, userId)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<GenerateNewResponse>() {
                         override fun onCompleted() {
@@ -53,7 +53,7 @@ public class DashaData {
 
     fun getGenerateNewResponseAsync(generateNewRequestBody: GenerateNewRequestBody, userId: String, callback: DashaCallback<GenerateNewResponse>) {
         try {
-            mCompositeSubscription.add(RestProvider.getDashaService().getMahaDashaResponse(Utils.KEY_VALUE, generateNewRequestBody, userId)
+            mCompositeSubscription.add(RestProvider.getDashaService().getMahaDashaResponse(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, generateNewRequestBody, userId)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .retryWhen(RetryWithDelay(3, 2000))
@@ -82,7 +82,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getCurrentMahadashaFalText(Utils.KEY_VALUE, currentMahadashaFalRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getCurrentMahadashaFalText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, currentMahadashaFalRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<CurrentMahadashaFalResponse>() {
                         override fun onCompleted() {
@@ -110,7 +110,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getCurrentMahadashaFalText(Utils.KEY_VALUE, currentMahadashaFalRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getCurrentMahadashaFalText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, currentMahadashaFalRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -141,7 +141,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getCurrentAntardashaFalText(Utils.KEY_VALUE, currentAntardashaFalRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getCurrentAntardashaFalText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, currentAntardashaFalRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<CurrentAntardashaFalResponse>() {
                         override fun onCompleted() {
@@ -169,7 +169,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getCurrentAntardashaFalText(Utils.KEY_VALUE, currentAntardashaFalRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getCurrentAntardashaFalText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, currentAntardashaFalRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -200,7 +200,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyYogYutiText(Utils.KEY_VALUE, yogYutiRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyYogYutiText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, yogYutiRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<YogYutiResponse>() {
                         override fun onCompleted() {
@@ -228,7 +228,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyYogYutiText(Utils.KEY_VALUE, yogYutiRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyYogYutiText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, yogYutiRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -258,7 +258,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getHoroscope(Utils.KEY_VALUE, horoscopeRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getHoroscope(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, horoscopeRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<HoroscopeResponse>() {
                         override fun onCompleted() {
@@ -286,7 +286,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getHoroscope(Utils.KEY_VALUE, horoscopeRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getHoroscope(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, horoscopeRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -317,7 +317,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyHealthText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyHealthText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<HealthResponse>() {
                         override fun onCompleted() {
@@ -345,7 +345,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyHealthText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyHealthText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -376,7 +376,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyMarriedLifeText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyMarriedLifeText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<MarriedLifeResponse>() {
                         override fun onCompleted() {
@@ -404,7 +404,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyMarriedLifeText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyMarriedLifeText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -435,7 +435,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyOccupationText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyOccupationText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<OccupationResponse>() {
                         override fun onCompleted() {
@@ -462,7 +462,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyOccupationText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyOccupationText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -492,7 +492,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyParentsText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyParentsText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<ParentsResponse>() {
                         override fun onCompleted() {
@@ -521,7 +521,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyParentsText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyParentsText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -553,7 +553,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyChildrenText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyChildrenText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribe(object : Subscriber<ChildrenResponse>() {
                         override fun onCompleted() {
@@ -581,7 +581,7 @@ public class DashaData {
 
         try {
 
-            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyChildrenText(Utils.KEY_VALUE, predictionRequestBody)
+            mCompositeSubscription.add(RestProvider.getDashaService().getOnlyChildrenText(Utils.MERCHANT_KEY_VALUE, Utils.KEY_VALUE, predictionRequestBody)
                     .retryWhen(RetryWithDelay(3, 2000))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
